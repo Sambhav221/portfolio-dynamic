@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/certificates">Certificates</a>
+    <a href="/contact">Contact</a>
+</div>
+
+<div class="container">
+
+    <!-- TITLE -->
+    <h1 class="section-title">📞 Contact Me</h1>
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+
+        <div class="info-card">
+            <h2>📧 Email</h2>
+            <p>sambhav@example.com</p>
+        </div>
+
+        <div class="info-card">
+            <h2>📱 Phone</h2>
+            <p>+91 XXXXX XXXXX</p>
+        </div>
+
+        <div class="info-card">
+            <h2>📍 Location</h2>
+            <p>Odisha, India</p>
+        </div>
+
+    </div>
+
+    <!-- FLASH MESSAGE -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- CONTACT FORM -->
+    <div class="contact-card">
+
+        <form method="POST" class="contact-form">
+
+            <input type="text"
+                   name="name"
+                   placeholder="Your Name"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Your Email"
+                   required>
+
+            <textarea name="message"
+                      placeholder="Your Message"
+                      required></textarea>
+
+            <button type="submit" class="send-btn">
+                🚀 Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

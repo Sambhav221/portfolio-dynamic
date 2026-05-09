@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambhav Sahoo | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <a href="{{ url_for('home') }}">About</a>
+
+    <a href="{{ url_for('projects') }}">Projects</a>
+
+    <a href="{{ url_for('certificates') }}">Certificates</a>
+
+    <a href="{{ url_for('contact') }}">Contact</a>
+
+    <!-- DYNAMIC RESUME BUTTON -->
+    <a href="{{ url_for('static', filename='resume/resume.pdf') }}"
+       target="_blank">
+        Resume
+    </a>
+
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+
+    <!-- AVATAR -->
+    <div class="avatar-wrapper">
+
+        <div class="avatar">
+
+            <img src="{{ url_for('static', filename='images/3d-portrait-people.jpg') }}"
+                 alt="avatar">
+
+        </div>
+
+    </div>
+
+    <!-- TEXT -->
+    <h1 id="title">Welcome 👋</h1>
+
+    <p class="tagline">
+        Building ideas into reality with code & data 🚀
+    </p>
+
+    <h2 id="subtitle" class="hidden"></h2>
+
+    <p id="desc" class="hidden"></p>
+
+    <!-- BUTTON -->
+    <button id="nextBtn" onclick="nextStep()">
+        Next →
+    </button>
+
+</div>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

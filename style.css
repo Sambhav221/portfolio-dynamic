@@ -1,0 +1,494 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0b1220, #020617);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 18px;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: #facc15;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: white;
+    transform: scale(1.08);
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ================= AVATAR ================= */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.4s;
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.35);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 0 45px #facc15;
+}
+
+/* ================= HERO TEXT ================= */
+.hero h1 {
+    font-size: 3.8rem;
+    color: #facc15;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #e5e7eb;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* ================= BUTTON ================= */
+#nextBtn {
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: linear-gradient(45deg, #facc15, #ffb700);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#nextBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px #facc15;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    padding: 60px 40px;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 45px;
+    font-weight: 700;
+}
+
+/* ================= PROJECT GRID ================= */
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* ================= PROJECT CARD ================= */
+.project-card {
+    background: rgba(31, 41, 55, 0.78);
+    padding: 25px;
+    border-radius: 22px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    transition: 0.35s ease;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(250, 204, 21, 0.25);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+}
+
+.project-card p {
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* ================= BUTTON GROUP ================= */
+.btn-group {
+    margin-top: auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ================= GITHUB BUTTON ================= */
+.github-btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #facc15, #ffb700);
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.github-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px #facc15;
+}
+
+/* ================= DELETE BUTTON ================= */
+.delete-btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px #ef4444;
+}
+
+/* ================= ADMIN PANEL ================= */
+.admin-card {
+    background: rgba(31, 41, 55, 0.78);
+    padding: 30px;
+    border-radius: 22px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+
+.admin-form input,
+.admin-form textarea {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    width: 240px;
+    background: #1f2937;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    border: 1px solid #facc15;
+    box-shadow: 0 0 10px rgba(250,204,21,0.3);
+}
+
+input[type="file"] {
+    background: #1f2937;
+    color: white;
+    padding: 12px;
+}
+
+.add-btn {
+    padding: 14px 22px;
+    background: linear-gradient(45deg, #22c55e, #16a34a);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px #22c55e;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 40px;
+    color: #f87171;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ================= CERTIFICATE GRID ================= */
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.certificate-card {
+    background: rgba(17, 24, 39, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.05);
+    width: 320px;
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.25);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.certificate-content {
+    padding: 18px;
+}
+
+.certificate-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.certificate-content p {
+    color: #94a3b8;
+}
+
+/* ================= CONTACT INFO ================= */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+.contact-info-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    padding: 35px 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(250,204,21,0.2);
+}
+
+.contact-info-card h2 {
+    color: #facc15;
+    margin-bottom: 12px;
+    font-size: 1.8rem;
+}
+
+.contact-info-card p {
+    font-size: 1.4rem;
+    color: #e6e6e6;
+    margin-top: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-card {
+    background: rgba(17, 24, 39, 0.95);
+    padding: 35px;
+    border-radius: 22px;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #1f2937;
+    color: white;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    min-height: 160px;
+    resize: none;
+}
+
+.send-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #facc15, #ffb700);
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.send-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px #facc15;
+}
+
+/* ================= MESSAGE CARD ================= */
+.message-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.message-card {
+    background: rgba(17, 24, 39, 0.95);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.message-card h2 {
+    margin-bottom: 10px;
+}
+
+.message-card h3 {
+    color: #facc15;
+    margin-bottom: 15px;
+}
+
+.message-card p {
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* ================= FLASH ================= */
+.flash-container {
+    margin-bottom: 25px;
+}
+
+.flash {
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.flash.success {
+    background: rgba(34,197,94,0.2);
+    color: #4ade80;
+}
+
+.flash.error {
+    background: rgba(239,68,68,0.2);
+    color: #f87171;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 40px 20px;
+    }
+
+    .project-card,
+    .certificate-card,
+    .contact-info-card {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .admin-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-form input,
+    .admin-form textarea {
+        width: 100%;
+    }
+
+    .contact-info-card p {
+        font-size: 1rem;
+    }
+}

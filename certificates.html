@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="/">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/certificates">Certificates</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+
+        <h1 class="section-title">🏆 My Certificates</h1>
+
+        <div class="certificate-grid">
+
+            {% for cert in certificates %}
+
+            <div class="certificate-card">
+
+                <!-- CLICKABLE IMAGE -->
+                <a href="{{ url_for('static',
+                        filename='images/certificates/' + cert.image) }}"
+                   target="_blank">
+
+                    <img
+                        src="{{ url_for('static',
+                        filename='images/certificates/' + cert.image) }}"
+                        alt="{{ cert.title }}"
+                        class="certificate-image">
+
+                </a>
+
+                <!-- CONTENT -->
+                <div class="certificate-content">
+
+                    <h2>{{ cert.title }}</h2>
+
+                    <p>{{ cert.subtitle }}</p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

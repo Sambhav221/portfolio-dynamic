@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/certificates">Certificates</a>
+    <a href="/contact">Contact</a>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <h1 class="section-title">My Projects 🚀</h1>
+
+    <div class="project-grid">
+        {% for p in projects %}
+        <div class="project-card">
+
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.description }}</p>
+
+            <!-- ✅ FIXED BUTTON ALIGNMENT -->
+            <div class="project-actions">
+                <a href="{{ p.github }}" target="_blank" class="github-btn">
+                    🔗 View on GitHub
+                </a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <h1 class="section-title">
+        ⚡ Admin Dashboard
+    </h1>
+
+    <!-- FLASH MESSAGES -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+
+            <div class="flash-container">
+
+                {% for category, message in messages %}
+
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+    {% endwith %}
+
+    <!-- ================= ADD PROJECT ================= -->
+    <div class="admin-card">
+
+        <h2 class="admin-heading">
+            🚀 Add Project
+        </h2>
+
+        <form method="POST"
+              class="admin-form">
+
+            <input type="hidden"
+                   name="form_type"
+                   value="project">
+
+            <input type="text"
+                   name="title"
+                   placeholder="Project Title"
+                   required>
+
+            <input type="text"
+                   name="description"
+                   placeholder="Description"
+                   required>
+
+            <input type="text"
+                   name="github"
+                   placeholder="GitHub Link"
+                   required>
+
+            <button type="submit"
+                    class="add-btn">
+
+                ➕ Add Project
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= ADD CERTIFICATE ================= -->
+    <div class="admin-card">
+
+        <h2 class="admin-heading">
+            🏆 Add Certificate
+        </h2>
+
+        <form method="POST"
+              enctype="multipart/form-data"
+              class="admin-form">
+
+            <input type="hidden"
+                   name="form_type"
+                   value="certificate">
+
+            <input type="text"
+                   name="cert_title"
+                   placeholder="Certificate Title"
+                   required>
+
+            <input type="text"
+                   name="cert_subtitle"
+                   placeholder="Certificate Subtitle"
+                   required>
+
+            <input type="file"
+                   name="cert_image"
+                   required>
+
+            <button type="submit"
+                    class="add-btn">
+
+                📤 Upload Certificate
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= UPLOAD RESUME ================= -->
+    <div class="admin-card">
+
+        <h2 class="admin-heading">
+            📄 Upload Resume
+        </h2>
+
+        <form method="POST"
+              action="{{ url_for('upload_resume') }}"
+              enctype="multipart/form-data"
+              class="admin-form">
+
+            <input type="file"
+                   name="resume_file"
+                   accept=".pdf"
+                   required>
+
+            <button type="submit"
+                    class="add-btn">
+
+                ⬆ Upload Resume
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= PROJECTS ================= -->
+    <h2 class="sub-title">
+        📂 All Projects
+    </h2>
+
+    <div class="project-grid">
+
+        {% for p in projects %}
+
+        <div class="project-card">
+
+            <h3>{{ p.title }}</h3>
+
+            <p>{{ p.description }}</p>
+
+            <div class="btn-group">
+
+                <a href="{{ p.github }}"
+                   target="_blank"
+                   class="github-btn">
+
+                    🔗 View on GitHub
+
+                </a>
+
+                <a href="{{ url_for('delete_project', id=p.id) }}"
+                   class="delete-btn"
+                   onclick="return confirm('Are you sure you want to delete this project?');">
+
+                    🗑 Delete
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- ================= CERTIFICATES ================= -->
+    <h2 class="sub-title">
+        🏆 All Certificates
+    </h2>
+
+    <div class="certificate-grid">
+
+        {% for cert in certificates %}
+
+        <div class="certificate-card">
+
+            <img src="{{ url_for('static',
+            filename='images/certificates/' + cert.image) }}"
+                 alt="Certificate"
+                 class="certificate-image">
+
+            <div class="certificate-content">
+
+                <h3>{{ cert.title }}</h3>
+
+                <p>{{ cert.subtitle }}</p>
+
+                <a href="{{ url_for('delete_certificate', id=cert.id) }}"
+                   class="delete-btn"
+                   onclick="return confirm('Delete this certificate?');">
+
+                    🗑 Delete
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- ================= CONTACT MESSAGES ================= -->
+    <h2 class="sub-title">
+        📩 Contact Messages
+    </h2>
+
+    <div class="project-grid">
+
+        {% for c in contacts %}
+
+        <div class="project-card">
+
+            <h3>{{ c.name }}</h3>
+
+            <p><strong>Email:</strong> {{ c.email }}</p>
+
+            <p>{{ c.message }}</p>
+
+            <a href="{{ url_for('delete_message', id=c.id) }}"
+               class="delete-btn"
+               onclick="return confirm('Delete this message?');">
+
+                🗑 Delete Message
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- LOGOUT -->
+    <div style="text-align:center; margin-top:40px;">
+
+        <a href="{{ url_for('logout') }}"
+           class="logout-btn">
+
+            Logout
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
